@@ -1,23 +1,11 @@
 # zwibbler-drawBoard
 
-本项目是基于 zwibbler 这一在线画图工具。底层的技术就是 canvas，一系列对 canvas 的操作。本项目中还存在许多问题，后续会跟踪并修复bug。
- 
+本项目是基于 zwibbler 这一在线画图工具。底层的技术就是 canvas，一系列对 canvas 的操作。
  
 >**如有帮助谢谢star**   :star::star::star::star::star:
 
- - 1-画板编辑（最全）-效果图： 
-<img src="other/1.jpg" />
- 
- 
- - 2-视频截图+画板编辑（简化）-效果图： ( 此项目需要IDE运行起来才可看效果 )
-
-<img src="other/2.jpg" />
-
-
  - 官网 ：http://zwibbler.com/
  - 官方英文文档：http://zwibbler.com/docs/
- - 新浪API：  http://blog.sina.com.cn/s/blog_43653b200102wdps.html （@Lane）
- - CSDN API：http://blog.csdn.net/yangbingx/article/details/65444590
  - zwibbler作者邮箱：steve.hanov@gmail.com
  
  > 这里有对 zwibbler 工具的具体描述。里面也有一些简单的例子，大家可以学习学习。
