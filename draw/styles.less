@@ -1,0 +1,133 @@
+@blue: #3863f0;
+@blue-highlight: cyan; /*#8ea8ff;*/
+@blue-transparent: rgba(56, 99, 240, 0.2);
+@gray: #727272;
+@darkblue: #242537;
+.prefix(@name, @value) {
+    -webkit-@{name}+: @value;
+    -moz-@{name}+: @value;
+    -khtml-@{name}+: @value;
+    -ms-@{name}+: @value;
+    -o-@{name}+: @value;
+    @{name}+: @value;
+}
+
+.background-transition {
+    .prefix(transition, background 200ms ease);
+}
+
+.box-shadow {
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+.round {
+	border-radius: 5px;
+}
+body {
+	background: white;
+	padding: 0;
+	margin: 0;
+}
+body, textarea, h2 {
+	font-family: "Signika Negative", "Verdana", sans-serif;
+	font-size: 25px;
+}
+.quote-button {
+	.box-shadow;
+	.round;
+	background: @blue;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	padding: 15px 60px;
+	cursor: pointer;
+	text-decoration: none;
+}
+.code-snippet {
+	background-color: @darkblue;
+	padding: 3em 1em 1em 1em;
+	color: white;
+	position: relative;
+	height: 580px;
+
+	a {
+		color: @gray;
+	}
+
+	h1 {
+		color: @blue;
+	}
+	.right {
+		position: absolute;
+		right: 20px;
+		top: 3em;
+		width: 400px;
+	}
+
+	.textarea {
+		background-color: @blue;
+		color: white;
+		padding: 1em;
+		margin-bottom: 1em;
+		font-size: 15px;
+		font-family: "Consolas","Lucida Console","Courier New", fixed;
+	}
+
+	#zwibbler1 {
+		.box-shadow;
+		position: relative;
+		width: 400px;
+		height: 600px;
+	}
+
+	#zwibbler1-canvas {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	#zwibbler1-toolbar {
+		position: absolute;
+		left: 30px;
+        bottom:30px;
+		width: 800px;
+		padding: 5px;
+		border-radius: 15px;
+		background-color: rgba(255,255,255,0.8);
+		text-align: center;
+	}
+
+	#zwibbler1-toolbar a {
+		margin: 8px;
+		width: 50px;
+		height: 50px;
+		border-radius: 5px;
+	}
+
+	#zwibbler1-toolbar a:hover, #zwibbler1-toolbar a.zwibbler-selected {
+		background-color: #999;
+	}
+
+	#save-pdf {
+		.quote-button;
+		.background-transition;
+		z-index: 1;
+		position: absolute;
+		right: 10px;
+		bottom: 30px;
+	}
+
+	#save-pdf:hover {
+		background: cyan;
+	}
+
+	.whitebox {
+		position: absolute;
+		background-color: white;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 90px;
+	}
+}

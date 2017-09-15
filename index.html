@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<!-- 
+* Features - scrolls to apprpriate part of page
+* Docs
+* Buy - scrolls to appropriate part of page
+* Choose button highlight colour
+* Free quote button has max-width when screen is small
+* free quote button works to email
+* Click button has correct highlight colour
+* when button clicked, demo slides down
+* pencil button works
+* pick button works
+* text button works
+* get blue icon for circle
+* get blue icon for square
+* create dropdown menu for shapes
+* popup menu works
+* currently selected shape changes
+* can draw currently selected shape
+* shape button works
+* click to roll up the drawing tool
+x collect demo text, title, link, image into json.
+* remove arrows from demo div and position appropriately.
+x demo uses a template
+x javascript duplicates the demo area with a hidden one
+* back / forward buttons fill in the other demo area and toggle opacity.
+* ask a question has highlight colour and transition
+* ask a question button works with correct link.
+- save pdf button on demo
+- double size of .demo on full width.
+- back/next arrows hidden appropriately.
+-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet/less" type="text/css" href="draw/styles.less" />
+    <script src="draw/less.min.js"></script>
+   <!-- <link href='https://fonts.googleapis.com/css?family=Prompt:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">-->
+</head>
+<body>
+
+<div class="code-snippet">
+    <div id="zwibbler1" style="margin-left:auto;margin-right:auto;border:2px solid red;width:100%;height:600px;">
+        <div id="zwibbler1-canvas"></div>
+        <div id="zwibbler1-toolbar"></div>
+        <!--<a href="javascript:void(0)" id="save-pdf" onclick="downloadPdf()">
+            Export PDF
+        </a>-->
+        <a href="javascript:void(0)" id="save-pdf" onclick="downloadJpg()">
+            Export jpg
+        </a>
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+
+
+<script src="draw/zwibbler-demo.js"></script>
+<script>
+    var zwibbler;
+    var titleZwibbler;
+    window.addEventListener("load", function() {
+        var path='draw/'
+        zwibbler = Zwibbler.create("zwibbler1-canvas", {
+            setFocus: false,
+            showToolbar: false,
+            defaultFillStyle: "rgba(255,255,255,0.5)",
+            defaultStrokeStyle: "red",
+            defaultLineWidth: 5,
+            defaultBrushColour: "magenta",
+            scrollbars: false
+        });
+        zwibbler.setConfig("backgroundImage", path+"galaxy.jpg");
+        zwibbler.createToolbar("#zwibbler1-toolbar", [
+            {
+                title: "Pick tool",
+                image: path+"icon-pick.png",
+                toolName: "pick",
+                onclick: function() {
+                    zwibbler.usePickTool();
+                }
+            }, {
+                title: "Circle tool",
+                image: path+"icon-circle.png",
+                toolName: "circle",
+                onclick: function() {
+                    zwibbler.useCircleTool();
+                }
+            }, {
+                title: "Square tool",
+                image: path+"icon-square.png",
+                toolName: "rectangle",
+                onclick: function() {
+                    zwibbler.useRectangleTool();
+                }
+            }, {
+                title: "Pencil",
+                image: path+"icon-pencil.png",
+                toolName: "brush",
+                onclick: function() {
+                    zwibbler.useBrushTool();
+                }
+            }, {
+                title: "Arrow tool",
+                image: path+"icon-arrow.png",
+                toolName: "arrow",
+                onclick: function() {
+                    zwibbler.useArrowTool();
+                }
+            }, {
+                title: "Text",
+                image: path+"icon-text.png",
+                toolName: "text",
+                onclick: function() {
+                    zwibbler.useTextTool();
+                }
+            }, {
+                title: "Undo",
+                image: path+"icon-undo.png",
+                onclick: function() {
+                    zwibbler.undo();
+                }
+            }, {
+                title: "Redo",
+                image: path+"icon-redo.png",
+                onclick: function() {
+                    zwibbler.redo();
+                }
+            }, {
+                title: "Copy",
+                image: path+"icon-copy.png",
+                onclick: function() {
+                    zwibbler.copy();
+                }
+            }, {
+                title: "Paste",
+                image: path+"icon-paste.png",
+                onclick: function() {
+                    zwibbler.paste();
+                }
+            }
+        ]);
+
+
+        titleZwibbler = Zwibbler.create("titleZwibbler", {
+            showToolbar: false,
+            setFocus: false,
+            defaultFillStyle: "rgba(0,0,0,0.0)",
+            defaultStrokeStyle: "#3863f0",
+            defaultLineWidth: 5,
+            defaultBrushColour: "#3863f0",
+            defaultBrushWidth: 5,
+            defaultFontSize: 30,
+            defaultTextFillStyle: "#3863f0",
+            background: "rgba(255, 255, 255, 0.2)"
+        });
+
+    });
+
+
+
+    //download
+    function downloadJpg() {
+        zwibbler.setPaperSize("letter", true);
+        zwibbler.download("jpg", "zwibbler.jpg");
+        zwibbler.setPaperSize("none");
+    }
+   //save pic
+   /*function saveJpg() {
+       zwibbler.setPaperSize("letter", true);
+       var dataUrl = zwibbler.save("jpg");
+       window.localStorage.url=dataUrl
+      /!*  window.open(dataUrl, "other"); *!/
+    }*/
+
+</script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5751047-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</body>
+</html>
